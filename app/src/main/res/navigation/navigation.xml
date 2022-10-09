@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/retrofitUsing">
+
+    <fragment
+        android:id="@+id/retrofitUsing"
+        android:name="com.example.api.ui.GetData"
+        android:label="fragment_retrofit_using"
+        tools:layout="@layout/get_data" >
+        <action
+            android:id="@+id/action_retrofitUsing_to_simpleJson"
+            app:destination="@id/simpleJson" />
+    </fragment>
+    <fragment
+        android:id="@+id/simpleJson"
+        android:name="com.example.api.ui.SimpleJson"
+        android:label="fragment_simple_json"
+        tools:layout="@layout/fragment_simple_json" />
+</navigation>
