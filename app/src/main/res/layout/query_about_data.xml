@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.GetData">
+    tools:context=".ui.QueryAboutData">
 
     <TextView
         android:id="@+id/textView"
@@ -14,7 +14,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="@dimen/_20sdp"
-        android:text="@string/textview" />
+        android:text="@string/loading" />
     <Button
         android:id="@+id/json"
         android:layout_width="wrap_content"

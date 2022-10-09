@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/retrofitUsing"
-        android:name="com.example.api.ui.GetData"
+        android:name="com.example.api.ui.QueryAboutData"
         android:label="fragment_retrofit_using"
-        tools:layout="@layout/get_data" >
+        tools:layout="@layout/query_about_data" >
         <action
             android:id="@+id/action_retrofitUsing_to_simpleJson"
             app:destination="@id/simpleJson" />
