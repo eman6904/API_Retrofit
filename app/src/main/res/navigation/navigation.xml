@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/retrofitUsing"
-        android:name="com.example.api.ui.QueryAboutData"
+        android:name="com.example.api.ui.PostDataUsingObject"
         android:label="fragment_retrofit_using"
-        tools:layout="@layout/query_about_data" >
+        tools:layout="@layout/post_data_using_object" >
         <action
             android:id="@+id/action_retrofitUsing_to_simpleJson"
             app:destination="@id/simpleJson" />
     </fragment>
     <fragment
         android:id="@+id/simpleJson"
-        android:name="com.example.api.ui.SimpleJson"
+        android:name="com.example.api.ui.PostDataUsingMap"
         android:label="fragment_simple_json"
-        tools:layout="@layout/fragment_simple_json" />
+        tools:layout="@layout/post_data_using_map" />
 </navigation>

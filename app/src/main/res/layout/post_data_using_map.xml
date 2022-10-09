@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".ui.SimpleJson">
+    android:background="#E68FAD"
+    tools:context=".ui.PostDataUsingMap">
 
     <TextView
         android:id="@+id/text"
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/_20sdp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:text="@string/hello_blank_fragment" />
+        android:textColor="#83183D"
+        android:text="@string/loadingh" />
 
 </LinearLayout>

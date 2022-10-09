@@ -8,45 +8,52 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.api.MainActivity
 import com.example.api.R
-import com.example.api.databinding.QueryAboutDataBinding
+import com.example.api.databinding.PostDataUsingMapBinding
 import com.example.api.model.ApiInterface
-import retrofit2.*
+import org.json.JSONArray
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class QueryAboutData : Fragment(R.layout.query_about_data) {
-    private lateinit var binding: QueryAboutDataBinding
+class PostDataUsingMap : Fragment(R.layout.post_data_using_map) {
+    private lateinit var binding: PostDataUsingMapBinding
     private lateinit var navController: NavController
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = QueryAboutDataBinding.bind(view)
+        binding = PostDataUsingMapBinding.bind(view)
         navController = Navigation.findNavController(view)
         //to hide action bar
         val activity = activity as MainActivity
         activity.supportActionBar?.hide()
 
+        //send data to server by using map
+        val map = HashMap<Any, Any>()
+        map["title"] = "Android Studio"
+        map["body"] = "Android Studio Welcome You"
+        post(map)
+    }
+
+    private fun post(map: HashMap<Any, Any>) {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com/")
             .addConverterFactory(GsonConverterFactory.create()).build()
-
         val apiInterface: ApiInterface = retrofit.create(ApiInterface::class.java)
-        //here function=>getPost will return list of posts that their userid=1
-        val call: Call<List<JsonToKotlinMain>> = apiInterface.getPost("1")
-        call.enqueue(object : Callback<List<JsonToKotlinMain>> {
-            override fun onResponse(
-                call: Call<List<JsonToKotlinMain>>,
-                response: Response<List<JsonToKotlinMain>>
-            ) {
-                val postNumber = 0
-                binding.textView.text = response.body()?.get(postNumber)?.title.toString()
-                //will print title of first post from all posts that their userid=1 that function return
-            }
 
-            override fun onFailure(call: Call<List<JsonToKotlinMain>>, t: Throwable) {
-                binding.textView.text = t.message
+        val call: Call<JsonToKotlinMain> = apiInterface.mapPost(map)
+
+        call.enqueue(object : Callback<JsonToKotlinMain> {
+            override fun onResponse(
+                call: Call<JsonToKotlinMain>,
+                response: Response<JsonToKotlinMain>
+            ) {
+                binding.text.text = response.body()?.body
+            }
+            override fun onFailure(call: Call<JsonToKotlinMain>, t: Throwable) {
+                binding.text.text = t.message
             }
         })
-        binding.json.setOnClickListener {
-            navController.navigate(R.id.action_retrofitUsing_to_simpleJson)
-        }
     }
 }

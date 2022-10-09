@@ -5,4 +5,6 @@
     <string name="textview">....</string>
     <string name="simple_json">simple json</string>
     <string name="loading">Loading. . .</string>
+    <string name="post_by_map">post by map</string>
+    <string name="loadingh">Loading. .</string>
 </resources>

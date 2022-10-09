@@ -5,23 +5,26 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.QueryAboutData">
+    android:background="#E68FAD"
+    tools:context=".ui.PostDataUsingObject">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="#83183D"
         android:textSize="@dimen/_20sdp"
         android:text="@string/loading" />
-    <Button
+    <TextView
         android:id="@+id/json"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_40sdp"
         android:textStyle="bold"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:background="#E91E63"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_50sdp"
         android:textColor="@color/white"
         android:textSize="@dimen/_20sdp"
-        android:text="@string/simple_json" />
+        android:text="@string/post_by_map" />
 </LinearLayout>
